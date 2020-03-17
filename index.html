@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<head>
+  <title>Sample code for sidebench</title>
+</head>
+<style type="text/css">
+  .courceButton{
+    padding:5px 10px;background:#eee;margin-bottom: 10px;
+  }
+  .courceButtoncontainer{
+    margin-top: 20px;
+  }
+  .courceButtoncontainer button{
+    margin-right: 10px;
+    padding:5px 10px;background:#eee;
+  }
+  .courcecontainer{
+    padding:5px 10px;background:#eee;
+    border: 1px solid #111;
+  }
+</style>
+<body>
+  
+<div id="courceButton"></div>
+<div id="courcesData"></div>
+<div id="basicCources"></div>
+<script type="text/babel">
+class Mainclass extends React.Component {
+  cources() {
+    ReactDOM.render(<CreateCource />, document.getElementById('courcesData'));
+  }
+  render() {
+    return (
+      <button onClick={this.cources} class="courceButton">Cources!</button>
+    );
+  }
+}
+class CreateCource extends React.Component {
+  htmlcource() {
+    ReactDOM.render(<CreateHtmlCourceData />, document.getElementById('basicCources'));
+  }
+  csscource() {
+    ReactDOM.render(<CreateCssCourceData />, document.getElementById('basicCources'));
+  }
+  render() {
+    return (
+    <div class="courceButtoncontainer">
+      <button onClick={this.htmlcource}>Html Cource</button><button onClick={this.csscource}>CSS Cource</button>
+    </div>
+    );
+  }
+}
+class CreateCssCourceData extends React.Component {
+  render() {
+    return (
+    <div class="courcecontainer">
+      <p>Css Basic Knowlade</p>
+      <p>Css Advance Knowlade</p>
+      <p>Scss Cource</p>
+    </div>
+    );
+  }
+}
+class CreateHtmlCourceData extends React.Component {
+  render() {
+    return (
+    <div class="courcecontainer">
+      <p>Html Basic Knowlade</p>
+      <p>Html Advance Knowlade</p>
+      <p>Bootstrap</p>
+    </div>
+    );
+  }
+}
+
+ReactDOM.render(<Mainclass />, document.getElementById('courceButton'));
+</script>
+
+</body>
+</html>
